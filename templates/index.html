@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Estratégias de Roleta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Estratégias de Roleta</h1>
+        <form method="POST">
+            <label for="number">Digite o número que saiu na roleta (0-36):</label>
+            <input type="number" id="number" name="number" min="0" max="36" required>
+            <button type="submit">Obter Sugestões</button>
+        </form>
+        {% if suggested_numbers %}
+            <div class="result">
+                <h2>Você deve considerar jogar nos números: {{ suggested_numbers }}</h2>
+            </div>
+        {% elif error %}
+            <div class="error">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
