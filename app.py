@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+
 from strategies import get_suggested_numbers
 
 app = Flask(__name__)
